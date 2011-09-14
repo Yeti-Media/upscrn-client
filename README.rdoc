@@ -1,6 +1,6 @@
 = upscrn-client
 
-Description goes here.
+This is a client for the upscrn api.
 
 == Contributing to upscrn-client
  
