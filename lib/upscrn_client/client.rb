@@ -1,9 +1,3 @@
-require 'rubygems'
-require 'bundler/setup'
-require 'json'
-require 'rest_client'
-#require 'upscrn_client/client'
-
 module UpscrnClient
   class Client
     class << self

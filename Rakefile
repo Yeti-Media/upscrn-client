@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "upscrn-client"
   gem.homepage = "http://github.com/madcowley/upscrn-client"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{client library for accessing the upscrn api}
+  gem.description = %Q{client library for accessing the upscrn api}
   gem.email = "madcowley@gmail.com"
   gem.authors = ["Matt Cowley"]
   # dependencies defined in Gemfile
