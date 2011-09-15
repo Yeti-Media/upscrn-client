@@ -15,7 +15,7 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "upscrn-client"
-  gem.homepage = "http://github.com/madcowley/upscrn-client"
+  gem.homepage = "git@github.com:Yeti-Media/upscrn-client.git"
   gem.license = "MIT"
   gem.summary = %Q{client library for accessing the upscrn api}
   gem.description = %Q{client library for accessing the upscrn api}
