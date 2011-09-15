@@ -28,9 +28,10 @@ Gem::Specification.new do |s|
     "lib/upscrn-client.rb",
     "lib/upscrn_client/client.rb",
     "spec/spec_helper.rb",
-    "spec/upscrn-client_spec.rb"
+    "spec/upscrn-client_spec.rb",
+    "upscrn-client.gemspec"
   ]
-  s.homepage = %q{git@github.com:Yeti-Media/upscrn-client.git}
+  s.homepage = %q{https://madcowley@github.com/Yeti-Media/upscrn-client.git}
   s.licenses = [%q{MIT}]
   s.require_paths = [%q{lib}]
   s.rubygems_version = %q{1.8.8}
