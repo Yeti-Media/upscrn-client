@@ -1,8 +1,25 @@
-= upscrn-client
+# upscrn-client
 
-This is a client for the upscrn api.
+This is a client for the [upscrn](http://upscrn.com) api.
 
-== Contributing to upscrn-client
+
+## Usage
+
+Get the api token from upscrn.com.
+
+Upload a screenshot with: 
+
+    UpscrnClient::Client.upload_screenshot(filename, auth_token) 
+    
+To upload a screenshot to a specific project, use:
+
+    UpscrnClient::Client.upload_screenshot(filename, auth_token, :project_id => 12345)
+    
+For a list of a user's projects, use:
+
+     UpscrnClient::Client.projects(auth_token)
+
+## Contributing to upscrn-client
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
@@ -12,7 +29,7 @@ This is a client for the upscrn api.
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
-== Copyright
+## Copyright
 
 Copyright (c) 2011 Yeti Media. See LICENSE.txt for
 further details.
