@@ -13,7 +13,7 @@ module UpscrnClient
         file = File.open filename, 'r'
         begin
           if options[:project_id]
-            post_response = perform("post", "projects/#{project}/screenshots", auth_token,  {:screenshot => {:image => @image}})
+            post_response = perform("post", "projects/#{options[:project_id]}/screenshots", auth_token,  {:screenshot => {:image => @image}})
           else
             post_response = perform('post', 'screenshots', auth_token, {:screenshot => {:image => file}})
           end
