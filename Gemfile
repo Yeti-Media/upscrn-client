@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 gem "rest-client"
-gem "json"
+gem "json_pure"
 
 group :development do
   gem "rspec", "~> 2.3.0"
