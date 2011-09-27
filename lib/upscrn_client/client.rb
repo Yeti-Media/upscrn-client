@@ -1,11 +1,27 @@
 module UpscrnClient
   class Client
     class << self
+       attr_accessor :auth_token
 
-      
-      # Upload a screenshot to the upscrn server. 
+       def config
+         yield self
+       end
+
+    end
+
+    attr_accessor :auth_token
+
+
+
+
+
+    def initialize(auth_token = nil)
+      @auth_token = auth_token || self.class.auth_token
+    end
+
+      # Upload a screenshot to the upscrn server.
       # Pass :project_id in the options to upload to a particular project
-      
+
       def upload_screenshot(filename, auth_token, options = {})
         #puts "filepath: #{filepath}"
         @result = Hash.new
@@ -17,7 +33,7 @@ module UpscrnClient
           else
             post_response = perform('post', 'screenshots', auth_token, {:screenshot => {:image => file}})
           end
-  
+
           #puts "response: #{post_response}"
           @url = post_response["url"]
           @result['success'] = true
@@ -31,10 +47,10 @@ module UpscrnClient
         end
         @result
       end
-        
-      
+
+
       # return a list of projects for a given user
-      # list is returned in json format  
+      # list is returned in json format
       def projects(auth_token)
         perform('get', 'projects', auth_token)
       end
@@ -48,3 +64,4 @@ module UpscrnClient
     end
   end
 end
+
