@@ -28,69 +28,116 @@ For a list of a user's projects, use:
 You can set the auth token in two ways
 
 Config:
-   Upscrn::Client.config do |config|
-     config.auth_token = 'your_auth_token'
-   end
+
+    Upscrn::Client.config do |config|
+      config.auth_token = 'your_auth_token'
+    end
 
 Initialization:
-  client = Upscrn::Client.new('your_auth_token')
+
+    client = Upscrn::Client.new('your_auth_token')
 
 
-Projects:
-  List all projects:
+### Projects:
+  
+List all projects:
+
     client.projects(:all => true).get
+
     client.projects(:page => 2).get
-  Get a project:
+  
+Get a project:
+
     client.project(project_id).get
-  Create a project:
+
+Create a project:
+    
     client.projects(:project => {:name => 'test'}).post
-  Edit a project:
+
+Edit a project:
+    
     client.projects(project_id , :project => {:name => 'edited'}).put
 
-Screenshots:
-  List all Screeshots
+### Screenshots:
+
+List all Screeshots
+
     client.screenshots(:all => true).get
     client.screenshots(:page => 2).get
-  List all Screeshots in a Project
+
+List all Screeshots in a Project
+    
     client.project(project_id).screenshots(:all => true).get
     client.project(project_id).screenshots(:page => 2).get
-  Create a Screenshot:
+
+Create a Screenshot:
+
     client.screenshots(:screenshot => {:image => File.open('path/to/image')}).get
-  Create a Screenshot in a Project:
+
+Create a Screenshot in a Project:
+
     client.project(project_id).screenshots(:screenshot => {:title => 'title',:image => File.open('path/to/image')}).post
-  Get a Screenshot
+
+Get a Screenshot
+
     client.screenshot(screenshot_id).get
     client.project(project_id).screenshot(screenshot_id).get
-  Create a Comment on a screenshot
+
+Create a Comment on a screenshot
+
     client.project(project_id).screenshot(screenshot_id).comment(:comment => {:body => 'comment'}).post
-  List all comments on a screenshot
+
+List all comments on a screenshot
+
     client.project(project_id).screenshot(screenshot_id).comments.post
-  List all versions on a screenshot
+
+List all versions on a screenshot
+
     client.project(project_id).screenshot(screenshot_id).versions.post
-  Create a Version on a screenshot
+
+Create a Version on a screenshot
+
     client.project(project_id).screenshot(screenshot_id).version(:screenshot => {:title => 'title',:image => File.open('path/to/image')}).post
 
-Videos:
-  List all Videos
+### Videos:
+
+List all Videos
+
     client.videos(:all => true).get
     client.videos(:page => 2).get
-  List all Videos in a Project
+
+List all Videos in a Project
+
     client.project(project_id).videos(:all => true).get
     client.project(project_id).videos(:page => 2).get
-  Create a Video:
+
+Create a Video:
+
     client.videos(:video => {:image => File.open('path/to/image')}).get
-  Create a Video in a Project:
+
+Create a Video in a Project:
+
     client.project(project_id).videos(:video => {:title => 'title',:file => File.open('path/to/image')}).post
-  Get a Video
+
+Get a Video
+
     client.video(video_id).get
     client.project(project_id).video(video_id).get
-  Create a Comment on a Video
+
+Create a Comment on a Video
+
     client.project(project_id).video(video_id).comment(:comment => {:body => 'comment'}).post
-  List all comments on a Video
+
+List all comments on a Video
+
     client.project(project_id).video(video_id).comments.post
-  List all versions on a Video
+
+List all versions on a Video
+
     client.project(project_id).video(video_id).versions.post
-  Create a Version on a Video
+
+Create a Version on a Video
+
     client.project(project_id).video(video_id).version(:video => {:title => 'title',:file => File.open('path/to/image')}).post
 
 
