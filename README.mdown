@@ -5,22 +5,97 @@ This is a client for the [upscrn](http://upscrn.com) api.
 
 ## Usage
 
+====== OLD VERSION (before 0.2.0)======
 Get the api token from upscrn.com.
 
-Upload a screenshot with: 
+Upload a screenshot with:
 
-    UpscrnClient::Client.upload_screenshot(filename, auth_token) 
-    
+    Upscrn::Client.upload_screenshot(filename, auth_token)
+
 To upload a screenshot to a specific project, use:
 
-    UpscrnClient::Client.upload_screenshot(filename, auth_token, :project_id => 12345)
-    
+    Upscrn::Client.upload_screenshot(filename, auth_token, :project_id => 12345)
+
 For a list of a user's projects, use:
 
-     UpscrnClient::Client.projects(auth_token)
+     Upscrn::Client.projects(auth_token)
+
+
+====== NEW VERSION (since 0.2.0) ======
+
+### How To use
+
+You can set the auth token in two ways
+
+Config:
+   Upscrn::Client.config do |config|
+     config.auth_token = 'your_auth_token'
+   end
+
+Initialization:
+  client = Upscrn::Client.new('your_auth_token')
+
+
+Projects:
+  List all projects:
+    client.projects(:all => true).get
+    client.projects(:page => 2).get
+  Get a project:
+    client.project(project_id).get
+  Create a project:
+    client.projects(:project => {:name => 'test'}).post
+  Edit a project:
+    client.projects(project_id , :project => {:name => 'edited'}).put
+
+Screenshots:
+  List all Screeshots
+    client.screenshots(:all => true).get
+    client.screenshots(:page => 2).get
+  List all Screeshots in a Project
+    client.project(project_id).screenshots(:all => true).get
+    client.project(project_id).screenshots(:page => 2).get
+  Create a Screenshot:
+    client.screenshots(:screenshot => {:image => File.open('path/to/image')}).get
+  Create a Screenshot in a Project:
+    client.project(project_id).screenshots(:screenshot => {:title => 'title',:image => File.open('path/to/image')}).post
+  Get a Screenshot
+    client.screenshot(screenshot_id).get
+    client.project(project_id).screenshot(screenshot_id).get
+  Create a Comment on a screenshot
+    client.project(project_id).screenshot(screenshot_id).comment(:comment => {:body => 'comment'}).post
+  List all comments on a screenshot
+    client.project(project_id).screenshot(screenshot_id).comments.post
+  List all versions on a screenshot
+    client.project(project_id).screenshot(screenshot_id).versions.post
+  Create a Version on a screenshot
+    client.project(project_id).screenshot(screenshot_id).version(:screenshot => {:title => 'title',:image => File.open('path/to/image')}).post
+
+Videos:
+  List all Videos
+    client.videos(:all => true).get
+    client.videos(:page => 2).get
+  List all Videos in a Project
+    client.project(project_id).videos(:all => true).get
+    client.project(project_id).videos(:page => 2).get
+  Create a Video:
+    client.videos(:video => {:image => File.open('path/to/image')}).get
+  Create a Video in a Project:
+    client.project(project_id).videos(:video => {:title => 'title',:file => File.open('path/to/image')}).post
+  Get a Video
+    client.video(video_id).get
+    client.project(project_id).video(video_id).get
+  Create a Comment on a Video
+    client.project(project_id).video(video_id).comment(:comment => {:body => 'comment'}).post
+  List all comments on a Video
+    client.project(project_id).video(video_id).comments.post
+  List all versions on a Video
+    client.project(project_id).video(video_id).versions.post
+  Create a Version on a Video
+    client.project(project_id).video(video_id).version(:video => {:title => 'title',:file => File.open('path/to/image')}).post
+
 
 ## Contributing to upscrn-client
- 
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
 * Fork the project

@@ -1,6 +1,7 @@
-module UpscrnClient
+module Upscrn
   class Client
     class << self
+
        attr_accessor :auth_token
 
        def config
@@ -162,8 +163,9 @@ module UpscrnClient
     def build_path(auth_token,resources , params = {})
       url = resources.join('/')
       url += '.json'
-      url += "?" + params.mer(:auth_token => auth_token).to_a.map{|p| p.join('=')}.join('&')
-      URI.encode(request)
+      url += "?" + params.merge(:auth_token => auth_token).to_a.map{|p| p.join('=')}.join('&')
+      puts "Path built: #{url}"
+      URI.encode(url)
     end
 
   end
