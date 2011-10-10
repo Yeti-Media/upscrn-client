@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Matt Cowley}]
-  s.date = %q{2011-09-22}
+  s.date = %q{2011-10-10}
   s.description = %q{client library for accessing the upscrn api}
   s.email = %q{madcowley@gmail.com}
   s.extra_rdoc_files = [
@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{https://github.com/Yeti-Media/upscrn-client}
   s.licenses = [%q{MIT}]
   s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.8}
+  s.rubygems_version = %q{1.8.5}
   s.summary = %q{client library for accessing the upscrn api}
 
   if s.respond_to? :specification_version then
