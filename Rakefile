@@ -20,7 +20,7 @@ Jeweler::Tasks.new do |gem|
   gem.summary = %Q{client library for accessing the upscrn api}
   gem.description = %Q{client library for accessing the upscrn api}
   gem.email = "madcowley@gmail.com"
-  gem.authors = ["Matt Cowley"]
+  gem.authors = ["Matt Cowley", "Nico Santa"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
